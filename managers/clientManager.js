@@ -14,7 +14,8 @@ module.exports = {
     },
     // --------------- Informaciones Basicas
     obtenerActivePlayerName: function(){
-        return riotApi.consulta('/liveclientdata/activeplayername', 'GET', true);
+        riotApi.consulta('/liveclientdata/activeplayername', 'GET', 'activeplayername');
+        return fs.readFileSync('api/respuestas/activeplayername.xml').toString();
     },
     // --------------- Funciones
     buscarPartida: function(){
