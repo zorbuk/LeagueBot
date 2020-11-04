@@ -3,6 +3,9 @@ const pixel = require("./detection/pixel.js");
 const config = require("./config.js");
 const clientManager = require("./managers/clientManager.js");
 const gameManager = require("./managers/gameManager.js");
+const http = require("http");
+const { tipoCola } = require("./config.js");
+const fs = require('fs').promises;
 
 /* ********************
     Este proyecto ha sido realizado por Zorbuk.
@@ -16,24 +19,54 @@ const gameManager = require("./managers/gameManager.js");
     - Fs, modulo para archivos del sistema.
 */
 
-console.clear();
+// ********************
 
-/* Inicializar bot */
-console.log("LeagueBot JS hecho por Zorbuk en Nodejs con Robotjs");
 main();
+let __botClientStatus;
+
+// ********************
 
 async function main(){
-    while(config['auth']===null){
+    console.clear();
+    console.log("LeagueBot JS hecho por Zorbuk en Nodejs con Robotjs");
+
+    while(config.auth===null){
         clientManager.inicializar();
-        await sleep(2);
+        await config.sleep(2);
     }
 
-    console.log(`[ ¡Éxito! ] Auth '${config['auth']}' ~ Puerto '${config['puerto']}'.`);
+    console.log(`[ ¡Éxito! ] Auth '${config.auth}' ~ Puerto '${config.puerto}'.`);
 
-    await sleep(5);
-    // TODO
+    procesoIniciarPartida();
 }
 
-function sleep(seconds) {
-    return new Promise(resolve => setTimeout(resolve, seconds*1000));
-  }
+async function procesoIniciarPartida(){
+    while(true){
+        
+        // ********************
+        // Evitar el spam en consola.
+        // ********************
+
+        if(gameManager.obtenerGameFlow() != __botClientStatus){
+            __botClientStatus = gameManager.obtenerGameFlow();
+            console.log(`[ Estado ] ${gameManager.obtenerGameFlow()}`); // ? answerManager.Beautify(gameManager.obtenerGameFlow());
+        }
+
+        // ********************
+        switch(gameManager.obtenerGameFlow()){
+            case `"None"`:
+                clientManager.crearPartida(tipoCola.botsIntroduccion);
+                break;
+            case `"Lobby"`:
+                //gameManager.buscarPartida();
+                break;
+            case `"Matchmaking"`:
+                //gameManager.partidaEncontrada();
+                break;
+            default:
+                await config.sleep(0.5);
+                break;
+        }
+        await config.sleep(1);
+    }
+}
