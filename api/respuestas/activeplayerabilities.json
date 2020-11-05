@@ -1,0 +1,36 @@
+{
+	"E": {
+		"abilityLevel": 2,
+		"displayName": "Sweeping Blade",
+		"id": "YasuoE",
+		"rawDescription": "GeneratedTip_Spell_YasuoE_Description",
+		"rawDisplayName": "GeneratedTip_Spell_YasuoE_DisplayName"
+	},
+	"Passive": {
+		"displayName": "Way of the Wanderer",
+		"id": "YasuoPassive",
+		"rawDescription": "GeneratedTip_Passive_YasuoPassive_Description",
+		"rawDisplayName": "GeneratedTip_Passive_YasuoPassive_DisplayName"
+	},
+	"Q": {
+		"abilityLevel": 4,
+		"displayName": "Steel Tempest",
+		"id": "YasuoQ1Wrapper",
+		"rawDescription": "GeneratedTip_Spell_YasuoQ1Wrapper_Description",
+		"rawDisplayName": "GeneratedTip_Spell_YasuoQ1Wrapper_DisplayName"
+	},
+	"R": {
+		"abilityLevel": 1,
+		"displayName": "Last Breath",
+		"id": "YasuoR",
+		"rawDescription": "GeneratedTip_Spell_YasuoR_Description",
+		"rawDisplayName": "GeneratedTip_Spell_YasuoR_DisplayName"
+	},
+	"W": {
+		"abilityLevel": 1,
+		"displayName": "Wind Wall",
+		"id": "YasuoW",
+		"rawDescription": "GeneratedTip_Spell_YasuoW_Description",
+		"rawDisplayName": "GeneratedTip_Spell_YasuoW_DisplayName"
+	}
+}

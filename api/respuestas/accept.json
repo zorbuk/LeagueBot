@@ -1,0 +1,1 @@
+{"errorCode":"RPC_ERROR","httpStatus":500,"implementationDetails":{},"message":"Failed to accept team builder ready check: Error response for POST /lol-lobby-team-builder/v1/ready-check/accept: Cannot accept team builder AFK check because the current phase is: CHAMPION_SELECT"}

@@ -4,48 +4,48 @@ const riotApi = require('../api/riotApi.js');
 
 module.exports = {
     // --------------- Funciones
-    obtenerGameFlow: function(){
-        riotApi.consulta('/lol-gameflow/v1/gameflow-phase', 'GET', 'gameflow-phase');
-        return fs.readFileSync('api/respuestas/gameflow-phase.xml').toString();
+    obtenerGameFlow: (puerto)=>{
+        riotApi.consulta('/lol-gameflow/v1/gameflow-phase', 'GET', 'gameflow-phase', '', puerto);
+        return fs.readFileSync('api/respuestas/gameflow-phase.json').toString();
     },
-    obtenerAllGameData: function(){
-        riotApi.consulta('/liveclientdata/allgamedata', 'GET', 'allgamedata');
-        return fs.readFileSync('api/respuestas/allgamedata.xml').toString();
+    obtenerAllGameData: (puerto)=>{
+        riotApi.consulta('/liveclientdata/allgamedata', 'GET', 'allgamedata', '', puerto);
+        return fs.readFileSync('api/respuestas/allgamedata.json').toString();
     },
-    obtenerActivePlayerData: function(){
-        riotApi.consulta('/liveclientdata/activeplayer', 'GET', 'activeplayer');
-        return fs.readFileSync('api/respuestas/activeplayer.xml').toString();
+    obtenerActivePlayerData: (puerto)=>{
+        riotApi.consulta('/liveclientdata/activeplayer', 'GET', 'activeplayer', '', puerto);
+        return fs.readFileSync('api/respuestas/activeplayer.json').toString();
     },
-    obtenerActivePlayerHabilities:function(){
-        riotApi.consulta('/liveclientdata/activeplayerabilities', 'GET', 'activeplayerabilities');
-        return fs.readFileSync('api/respuestas/activeplayerabilities.xml').toString();
+    obtenerActivePlayerHabilities:(puerto)=>{
+        riotApi.consulta('/liveclientdata/activeplayerabilities', 'GET', 'activeplayerabilities', '', puerto);
+        return fs.readFileSync('api/respuestas/activeplayerabilities.json').toString();
     },
-    obtenerActivePlayerRunes:function(){
-        riotApi.consulta('/liveclientdata/activeplayerrunes', 'GET', 'activeplayerrunes');
-        return fs.readFileSync('api/respuestas/activeplayerrunes.xml').toString();
+    obtenerActivePlayerRunes:(puerto)=>{
+        riotApi.consulta('/liveclientdata/activeplayerrunes', 'GET', 'activeplayerrunes', '', puerto);
+        return fs.readFileSync('api/respuestas/activeplayerrunes.json').toString();
     },
-    obtenerPlayerList:function(){
-        riotApi.consulta('/liveclientdata/playerlist', 'GET', 'playerlist');
-        return fs.readFileSync('api/respuestas/playerlist.xml').toString();
+    obtenerPlayerList:(puerto)=>{
+        riotApi.consulta('/liveclientdata/playerlist', 'GET', 'playerlist', '', puerto);
+        return fs.readFileSync('api/respuestas/playerlist.json').toString();
     },
-    obtenerPlayerScore:function(playerName){
-        riotApi.consulta(`/liveclientdata/playerscores?summonerName=${playerName}`, 'GET', 'playerscores');
-        return fs.readFileSync('api/respuestas/playerscores.xml').toString();
+    obtenerPlayerScore:(puerto, playerName)=>{
+        riotApi.consulta(`/liveclientdata/playerscores?summonerName=${playerName}`, 'GET', 'playerscores', '', puerto);
+        return fs.readFileSync('api/respuestas/playerscores.json').toString();
     },
-    obtenerPlayerSummonerSpells:function(playerName){
-        riotApi.consulta(`/liveclientdata/playersummonerspells?summonerName=${playerName}`, 'GET', 'playersummonerspells');
-        return fs.readFileSync('api/respuestas/playersummonerspells.xml').toString();
+    obtenerPlayerSummonerSpells:(puerto, playerName)=>{
+        riotApi.consulta(`/liveclientdata/playersummonerspells?summonerName=${playerName}`, 'GET', 'playersummonerspells', '', puerto);
+        return fs.readFileSync('api/respuestas/playersummonerspells.json').toString();
     },
-    obtenerPlayerItems:function(playerName){
-        riotApi.consulta(`/liveclientdata/playeritems?summonerName=${playerName}`, 'GET', 'playeritems');
-        return fs.readFileSync('api/respuestas/playeritems.xml').toString();
+    obtenerPlayerItems:(puerto, playerName)=>{
+        riotApi.consulta(`/liveclientdata/playeritems?summonerName=${playerName}`, 'GET', 'playeritems', '', puerto);
+        return fs.readFileSync('api/respuestas/playeritems.json').toString();
     },
-    obtenerGameEvents:function(){
-        riotApi.consulta('/liveclientdata/eventdata', 'GET', 'eventdata');
-        return fs.readFileSync('api/respuestas/eventdata.xml').toString();
+    obtenerGameEvents:(puerto)=>{
+        riotApi.consulta('/liveclientdata/eventdata', 'GET', 'eventdata', '', puerto);
+        return fs.readFileSync('api/respuestas/eventdata.json').toString();
     },
-    obtenerGameStats:function(){
-        riotApi.consulta('/liveclientdata/gamestats', 'GET', 'gamestats');
-        return fs.readFileSync('api/respuestas/gamestats.xml').toString();
+    obtenerGameStats:(puerto)=>{
+        riotApi.consulta(`/liveclientdata/gamestats`, 'GET', 'gamestats', '', puerto);
+        return fs.readFileSync('api/respuestas/gamestats.json').toString();
     }
 };

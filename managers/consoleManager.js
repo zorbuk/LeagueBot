@@ -3,7 +3,7 @@ let datetime = new Date().toLocaleTimeString('en-US', { hour12: false,
     minute: "numeric"});
 
 module.exports = {
-    escribir : function(mensaje){
+    escribir : (mensaje)=>{
         console.log(`[ ${datetime} ] (JsLeagueBot) ${mensaje}`);
     }
 };
